@@ -20,6 +20,8 @@ jobs:
  deploy:
   docker: 
    - image: circleci/python:latest
+  require:
+      - build-test
   steps:
       - checkout
       - run:
@@ -33,3 +35,4 @@ workflows:
     jobs:
       - build-test
       - deploy
+

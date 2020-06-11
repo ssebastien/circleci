@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
- build:
+ build-test:
   docker: 
    - image: circleci/python:latest
   steps:
@@ -17,8 +17,22 @@ jobs:
           command: |
             . venv/bin/activate
             pytest
-      
+ deploy:
+  docker: 
+   - image: circleci/python:latest
+  steps:
+      - checkout
+      - run:
+          name: Pret a deployer la nouvelle version
+          command: |
+            echo "on peut deployer car test + build OK"
+      - run:
+          command: |
+            . venv/bin/activate
+            pytest
+           
 workflows:
   main:
     jobs:
-      - build
+      - build-test
+      - deploy

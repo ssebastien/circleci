@@ -15,7 +15,7 @@ jobs:
       - run:
           command: |
             . venv/bin/activate
-            python manage.py test
+            python hello_add.py 
       
 workflows:
   main:

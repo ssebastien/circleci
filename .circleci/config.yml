@@ -37,5 +37,4 @@ workflows:
       - deploy:
           requires:
             - build-test
-          deploy-branch-filter: master
-
+          

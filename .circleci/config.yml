@@ -29,6 +29,7 @@ jobs:
             echo "on peut deployer car test + build OK"
 
 
+
 workflows:
   main:
     jobs:
@@ -36,4 +37,5 @@ workflows:
       - deploy:
           requires:
             - build-test
+          deploy-branch-filter: master
 
